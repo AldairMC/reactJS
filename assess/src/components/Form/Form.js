@@ -12,8 +12,27 @@ export default class Form extends Component {
         this.planCompleteRef = React.createRef();
     }
 
-    cotizar = () => {
-        
+    cotizar = (e) => {
+        e.preventDefault()
+
+        //leer refs del plan
+        const plan = this.planBasicoRef.current.checked 
+                    ? 'basico' 
+                    : 'completo';
+
+        //crear objeto con los datos
+        const datos = {
+            marca: this.marcaRef.current.value,
+            year: this.yearRef.current.value,
+            plan: plan
+
+        }
+
+        //enviar datos al app 
+        this.props.cotizarSeguro(datos)
+
+        //reset form {opcional}
+        //e.currentTarget.reset()
     }
 
     render() {

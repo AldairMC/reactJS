@@ -1,22 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from './Header/Header';
 import Form from './Form/Form'
 
-function App() {
-  return (
-    <div className="contenedor">
-      <Header 
-        title="Assess car"
-      />
+class App extends Component {
+  cotizarSeguro = (datos) => {
+    console.log(datos)
+  }
 
-      <div className="contenedor-formulario">
-        <Form 
-          
+    
+  render(){
+    return (
+      <div className="contenedor">
+        <Header 
+          title="Assess car"
         />
-      </div>
 
-    </div>
-  );
+        <div className="contenedor-formulario">
+          <Form 
+            cotizarSeguro={this.cotizarSeguro}
+          />
+        </div>
+
+      </div>
+    );
+  }
+  
 }
 
 export default App;
